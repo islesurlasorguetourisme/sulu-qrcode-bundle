@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>qr_codes</key>
+
+    <joins name="tags">
+        <join>
+            <entity-name>%sulu.model.tag.class%</entity-name>
+            <field-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode.tags</field-name>
+        </join>
+    </joins>
+
+    <properties>
+        <!-- The id is replaced by image URLs in the controller, which the "thumbnails" transformer displays. -->
+        <property name="thumbnails" visibility="always" translation="sulu_qr_code.preview" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="thumbnails"/>
+        </property>
+
+        <property name="title" visibility="always" searchability="yes" translation="sulu_qr_code.title">
+            <field-name>title</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <!-- Replaced in the controller by a description of the resolved target. -->
+        <property name="target" visibility="always" translation="sulu_qr_code.target" sortable="false">
+            <field-name>linkHref</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <group-concat-property
+            name="tagNames"
+            visibility="yes"
+            translation="sulu_tag.tags"
+            sortable="false"
+            glue=", "
+            distinct="true"
+        >
+            <field-name>name</field-name>
+            <entity-name>%sulu.model.tag.class%</entity-name>
+
+            <joins ref="tags"/>
+        </group-concat-property>
+
+        <!-- Only used for filtering: as a column it would duplicate the rows of QR codes having several tags. -->
+        <property name="tagId" visibility="never" translation="sulu_tag.tags">
+            <field-name>id</field-name>
+            <entity-name>%sulu.model.tag.class%</entity-name>
+
+            <joins ref="tags"/>
+
+            <filter type="selection">
+                <params>
+                    <param name="displayProperty" value="name"/>
+                    <param name="resourceKey" value="tags"/>
+                </params>
+            </filter>
+        </property>
+
+        <property name="scanCount" visibility="yes" translation="sulu_qr_code.scan_count">
+            <field-name>scanCount</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="number"/>
+            <filter type="number"/>
+        </property>
+
+        <property name="lastScannedAt" visibility="yes" translation="sulu_qr_code.last_scanned_at">
+            <field-name>lastScannedAt</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="datetime"/>
+            <filter type="datetime"/>
+        </property>
+
+        <property name="code" visibility="no" searchability="yes" translation="sulu_qr_code.code">
+            <field-name>code</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <property name="created" visibility="no" translation="sulu_admin.created">
+            <field-name>created</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="datetime"/>
+            <filter type="datetime"/>
+        </property>
+
+        <property name="changed" visibility="no" translation="sulu_admin.changed">
+            <field-name>changed</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="datetime"/>
+            <filter type="datetime"/>
+        </property>
+
+        <property name="id" visibility="no" translation="sulu_admin.id">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+    </properties>
+</list>

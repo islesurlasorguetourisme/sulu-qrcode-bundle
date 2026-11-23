@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>qr_code_daily_scans</key>
+
+    <properties>
+        <property name="id" visibility="never" translation="sulu_admin.id">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCodeDailyScan</entity-name>
+        </property>
+
+        <property name="scanDate" visibility="always" translation="sulu_qr_code.scan_date">
+            <field-name>scanDate</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCodeDailyScan</entity-name>
+
+            <transformer type="date"/>
+        </property>
+
+        <property name="scanCount" visibility="always" translation="sulu_qr_code.scan_count">
+            <field-name>scanCount</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCodeDailyScan</entity-name>
+
+            <transformer type="number"/>
+        </property>
+
+        <!-- Only used by the controller to restrict the list to one QR code. -->
+        <identity-property name="qrCodeId" visibility="never" translation="sulu_qr_code.qr_code">
+            <field-name>qrCode</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCodeDailyScan</entity-name>
+        </identity-property>
+    </properties>
+</list>

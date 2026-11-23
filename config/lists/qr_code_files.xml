@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>qr_code_files</key>
+
+    <!--
+        The downloadable files of a QR code. This list is not backed by a table: its rows are
+        built by the controller. The field and entity names below only satisfy the list schema.
+    -->
+    <properties>
+        <property name="id" visibility="never" translation="sulu_admin.id" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <property name="thumbnails" visibility="always" translation="sulu_qr_code.preview" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+
+            <transformer type="thumbnails"/>
+        </property>
+
+        <property name="format" visibility="always" translation="sulu_qr_code.file_format" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <property name="usage" visibility="always" translation="sulu_qr_code.file_usage" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+
+        <property name="dimensions" visibility="always" translation="sulu_qr_code.file_dimensions" sortable="false">
+            <field-name>id</field-name>
+            <entity-name>Islesurlasorguetourisme\SuluQrCodeBundle\Entity\QrCode</entity-name>
+        </property>
+    </properties>
+</list>

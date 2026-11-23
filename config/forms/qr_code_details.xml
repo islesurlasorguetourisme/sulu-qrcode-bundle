@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>qr_code_details</key>
+
+    <properties>
+        <section name="destination">
+            <meta>
+                <title>sulu_qr_code.section_destination</title>
+            </meta>
+
+            <properties>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title>sulu_qr_code.title</title>
+                        <info_text>sulu_qr_code.title_info</info_text>
+                    </meta>
+                </property>
+
+                <property name="link" type="link" mandatory="true">
+                    <meta>
+                        <title>sulu_qr_code.link</title>
+                        <info_text>sulu_qr_code.link_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="enable_anchor" value="true"/>
+                        <param name="enable_query" value="true"/>
+                    </params>
+                </property>
+
+                <property name="followVisitorLocale" type="checkbox">
+                    <meta>
+                        <title>sulu_qr_code.follow_visitor_locale</title>
+                        <info_text>sulu_qr_code.follow_visitor_locale_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="toggler"/>
+                        <param name="default_value" value="true"/>
+                        <param name="label">
+                            <meta>
+                                <title>sulu_qr_code.follow_visitor_locale_label</title>
+                            </meta>
+                        </param>
+                    </params>
+                </property>
+
+                <property name="tags" type="tag_selection">
+                    <meta>
+                        <title>sulu_tag.tags</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="appearance">
+            <meta>
+                <title>sulu_qr_code.section_appearance</title>
+            </meta>
+
+            <properties>
+                <property name="foregroundColor" type="color" colspan="6">
+                    <meta>
+                        <title>sulu_qr_code.foreground_color</title>
+                        <info_text>sulu_qr_code.foreground_color_info</info_text>
+                    </meta>
+                </property>
+
+                <property name="transparentBackground" type="checkbox" colspan="6">
+                    <meta>
+                        <title>sulu_qr_code.background</title>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="toggler"/>
+                        <param name="default_value" value="true"/>
+                        <param name="label">
+                            <meta>
+                                <title>sulu_qr_code.transparent_background</title>
+                            </meta>
+                        </param>
+                    </params>
+                </property>
+
+                <property
+                    name="backgroundColor"
+                    type="color"
+                    colspan="6"
+                    visibleCondition="transparentBackground == false"
+                >
+                    <meta>
+                        <title>sulu_qr_code.background_color</title>
+                        <info_text>sulu_qr_code.background_color_info</info_text>
+                    </meta>
+                </property>
+
+                <property name="size" type="number" colspan="4">
+                    <meta>
+                        <title>sulu_qr_code.size</title>
+                        <info_text>sulu_qr_code.size_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="min" value="100"/>
+                        <param name="max" value="4000"/>
+                        <param name="step" value="1"/>
+                    </params>
+                </property>
+
+                <property name="margin" type="number" colspan="4">
+                    <meta>
+                        <title>sulu_qr_code.margin</title>
+                        <info_text>sulu_qr_code.margin_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="min" value="0"/>
+                        <param name="max" value="1000"/>
+                        <param name="step" value="1"/>
+                    </params>
+                </property>
+
+                <property name="errorCorrectionLevel" type="single_select" colspan="4">
+                    <meta>
+                        <title>sulu_qr_code.error_correction_level</title>
+                        <info_text>sulu_qr_code.error_correction_level_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="default_value" value="M"/>
+                        <param name="values" type="collection">
+                            <param name="L">
+                                <meta>
+                                    <title>sulu_qr_code.error_correction_level_l</title>
+                                </meta>
+                            </param>
+                            <param name="M">
+                                <meta>
+                                    <title>sulu_qr_code.error_correction_level_m</title>
+                                </meta>
+                            </param>
+                            <param name="Q">
+                                <meta>
+                                    <title>sulu_qr_code.error_correction_level_q</title>
+                                </meta>
+                            </param>
+                            <param name="H">
+                                <meta>
+                                    <title>sulu_qr_code.error_correction_level_h</title>
+                                </meta>
+                            </param>
+                        </param>
+                    </params>
+                </property>
+
+                <property name="logo" type="single_media_selection" colspan="8">
+                    <meta>
+                        <title>sulu_qr_code.logo</title>
+                        <info_text>sulu_qr_code.logo_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+
+                <property name="logoSize" type="number" colspan="4" visibleCondition="logo.id">
+                    <meta>
+                        <title>sulu_qr_code.logo_size</title>
+                        <info_text>sulu_qr_code.logo_size_info</info_text>
+                    </meta>
+
+                    <params>
+                        <param name="min" value="10"/>
+                        <param name="max" value="30"/>
+                        <param name="step" value="1"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <!-- Only shown once the QR code exists: these values are computed by the server. -->
+        <section name="publication" visibleCondition="publicUrl">
+            <meta>
+                <title>sulu_qr_code.section_publication</title>
+            </meta>
+
+            <properties>
+                <!-- Sulu's native "qrcode" field: shows the URL and a plain, scannable rendering of it. -->
+                <property name="publicUrl" type="qrcode" disabledCondition="true" colspan="6">
+                    <meta>
+                        <title>sulu_qr_code.public_url</title>
+                        <info_text>sulu_qr_code.public_url_info</info_text>
+                    </meta>
+                </property>
+
+                <property name="target" type="text_area" disabledCondition="true" colspan="6">
+                    <meta>
+                        <title>sulu_qr_code.current_target</title>
+                        <info_text>sulu_qr_code.current_target_info</info_text>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+    </properties>
+</form>

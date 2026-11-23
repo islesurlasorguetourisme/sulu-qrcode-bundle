@@ -1,0 +1,57 @@
+# Administration API of the QR codes.
+# Import it in the admin context, under the "/admin/api" prefix (see README).
+
+sulu_qr_code.get_qr_codes:
+    path: '/qr-codes.{_format}'
+    format: json
+    methods: [GET]
+    controller: 'sulu_qr_code.admin.qr_code_controller::cgetAction'
+
+sulu_qr_code.post_qr_code:
+    path: '/qr-codes.{_format}'
+    format: json
+    methods: [POST]
+    controller: 'sulu_qr_code.admin.qr_code_controller::postAction'
+
+sulu_qr_code.delete_qr_codes:
+    path: '/qr-codes.{_format}'
+    format: json
+    methods: [DELETE]
+    controller: 'sulu_qr_code.admin.qr_code_controller::cdeleteAction'
+
+sulu_qr_code.get_qr_code_image:
+    path: '/qr-codes/{id}/image.{imageFormat}'
+    methods: [GET]
+    controller: 'sulu_qr_code.admin.qr_code_controller::imageAction'
+    requirements:
+        imageFormat: 'png|svg'
+
+sulu_qr_code.get_qr_code_files:
+    path: '/qr-codes/{qrCodeId}/files.{_format}'
+    format: json
+    methods: [GET]
+    controller: 'sulu_qr_code.admin.qr_code_controller::filesAction'
+
+sulu_qr_code.get_qr_code_daily_scans:
+    path: '/qr-codes/{qrCodeId}/daily-scans.{_format}'
+    format: json
+    methods: [GET]
+    controller: 'sulu_qr_code.admin.qr_code_daily_scan_controller::cgetAction'
+
+sulu_qr_code.get_qr_code:
+    path: '/qr-codes/{id}.{_format}'
+    format: json
+    methods: [GET]
+    controller: 'sulu_qr_code.admin.qr_code_controller::getAction'
+
+sulu_qr_code.put_qr_code:
+    path: '/qr-codes/{id}.{_format}'
+    format: json
+    methods: [PUT]
+    controller: 'sulu_qr_code.admin.qr_code_controller::putAction'
+
+sulu_qr_code.delete_qr_code:
+    path: '/qr-codes/{id}.{_format}'
+    format: json
+    methods: [DELETE]
+    controller: 'sulu_qr_code.admin.qr_code_controller::deleteAction'

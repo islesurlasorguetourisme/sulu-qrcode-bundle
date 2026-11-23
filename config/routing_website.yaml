@@ -1,0 +1,14 @@
+# Public endpoint encoded in every QR code.
+#
+# Import it in BOTH contexts: the website serves it, and the administration needs
+# it to know which URL to write into the images (see README).
+#
+# The path is part of what gets printed: do not change it (nor add a prefix when
+# importing) once QR codes are in circulation.
+
+sulu_qr_code.redirect:
+    path: '/qr/{code}'
+    methods: [GET, HEAD]
+    controller: 'sulu_qr_code.website.redirect_controller'
+    requirements:
+        code: '[A-Za-z0-9]{4,32}'
