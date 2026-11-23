@@ -4,7 +4,7 @@
 [![CI](https://github.com/islesurlasorguetourisme/sulu-qrcode-bundle/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/islesurlasorguetourisme/sulu-qrcode-bundle/actions/workflows/ci.yaml)
 [![PHP](https://img.shields.io/packagist/dependency-v/islesurlasorguetourisme/sulu-qrcode-bundle/php?label=php)](composer.json)
 [![Sulu](https://img.shields.io/packagist/dependency-v/islesurlasorguetourisme/sulu-qrcode-bundle/sulu%2Fsulu?label=sulu)](https://sulu.io)
-[![License](https://img.shields.io/packagist/l/islesurlasorguetourisme/sulu-qrcode-bundle)](LICENSE)
+[![License](https://img.shields.io/packagist/l/islesurlasorguetourisme/sulu-qrcode-bundle?label=license)](LICENSE)
 
 Dynamic QR codes for [Sulu](https://sulu.io) 3.
 
